@@ -1,0 +1,21 @@
+{
+    "accounts": [
+      {
+        "id": 1,
+        "accountName": "Kasa Hesabı",
+        "accountCode": "100"
+      },
+      {
+        "id": 2,
+        "accountName": "Alınan Çekler",
+        "accountCode": "101"
+      },
+      {
+        "id": 3,
+        "accountName": "Banka Hesabı",
+        "accountCode": "102"
+      }
+  
+    ]
+  }
+  
