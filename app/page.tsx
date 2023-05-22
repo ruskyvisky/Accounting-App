@@ -13,17 +13,15 @@ export default function Home() {
   const strings = localizationText[selectedLanguage];
 
   return (
-    <main>
-      <div className='flex justify-center pt-3'> 
-      
-
-      <h1 className='text-3xl text-center pt-3'>{strings.title}</h1>
-      <DropdownButton onSelect={handleLanguageSelect} />
-
+    <main className=" min-h-screen flex flex-col justify-center items-center py-10">
+      <div className="flex flex-row items-center space-y-4">
+        <h1 className="text-3xl font-bold px-4">{strings.title}</h1>
+        <DropdownButton selectedLanguage={selectedLanguage} onSelect={handleLanguageSelect} />
       </div>
-      <p className='text-sm pt-3'>{strings.info}</p>
+      <div className="flex-grow"></div>
       
-      <p>Selected Language: {selectedLanguage}</p>
+      <p className="text-sm text-gray-700 ">{strings.info}</p>
+     
     </main>
   );
 }
