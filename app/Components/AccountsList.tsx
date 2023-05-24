@@ -1,20 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface CardProps {
   accountName: string;
   accountCode: string;
 }
 
-const Card: React.FC<CardProps> = ({ accountCode, accountName }) => {
+const Card: React.FC<CardProps> = ({ accountName, accountCode }) => {
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
+    const data = JSON.stringify({ accountName, accountCode });
+    event.dataTransfer.setData('application/json', data);
+    setIsDragging(true);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+
   const containerStyle = {
-    width: '200px', // Yazıların bulunacağı konteynırın genişliğini burada belirleyebilirsiniz
+    width: '200px',
+    backgroundColor: isDragging ? 'lightblue' : 'teal',
+    borderRadius: '8px',
+    padding: '12px',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+    display: 'flex',
+    alignItems: 'center',
+    margin: '4px',
+    cursor: 'grab',
+  };
+
+  const textStyles = {
+    color: 'white',
+    marginLeft: '8px',
   };
 
   return (
-    <div className="bg-teal-300 rounded-lg p-4 shadow-md flex items-start my-1 mx-2" style={containerStyle}>
-      <p className="text-white mx-1">{accountCode}</p>
-      <div className="text-white w-1 ml-2 mr-2 " />
-      <p className="text-white">{accountName}</p>
+    <div
+      className="draggable-card"
+      style={containerStyle}
+      draggable={true}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+    >
+      <p style={textStyles}>{accountCode}</p>
+      <div className="divider" />
+      <p style={textStyles}>{accountName}</p>
     </div>
   );
 };
