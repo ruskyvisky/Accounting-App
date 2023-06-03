@@ -18,10 +18,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col py-10">
-      <div className="flex flex-row items-center justify-center space-y-4">
-        <h1 className="text-3xl font-bold px-4 py-4">{strings.title}</h1>
-        {/* <DropdownButton selectedLanguage={selectedLanguage} onSelect={handleLanguageSelect} /> */}
-      </div>
+      
       
       
 <div className='flex '>
@@ -39,7 +36,7 @@ export default function Home() {
 
       </div>
       <div className=" w-full">
-        <h2 className="text-2xl font-bold mb-4 text-center">{strings.subtitle}</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">EnFin Muhasebe Defteri</h2>
           <AccountTable data={accounts.accounts}  />
         </div>
 </div>

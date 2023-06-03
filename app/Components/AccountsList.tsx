@@ -18,34 +18,20 @@ const Card: React.FC<CardProps> = ({ accountName, accountCode }) => {
     setIsDragging(false);
   };
 
-  const containerStyle = {
-    width: '200px',
-    backgroundColor: isDragging ? 'lightblue' : 'teal',
-    borderRadius: '8px',
-    padding: '12px',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-    display: 'flex',
-    alignItems: 'center',
-    margin: '4px',
-    cursor: 'grab',
-  };
 
-  const textStyles = {
-    color: 'white',
-    marginLeft: '8px',
-  };
+
 
   return (
     <div
-      className="draggable-card"
-      style={containerStyle}
+      className="bg-teal-800 rounded-lg p-4 shadow-md flex items-start my-1 mx-2 w-48"
+   
       draggable={true}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
     >
-      <p style={textStyles}>{accountCode}</p>
-      <div className="divider" />
-      <p style={textStyles}>{accountName}</p>
+      <p  className='text-white mx-1'>{accountCode}</p>
+      <div className="divider text-white w-1 ml-2 mr-2" />
+      <p className='text-white'>{accountName}</p>
     </div>
   );
 };
